@@ -1,6 +1,7 @@
 {
-  "name": "component-bib-prototype-stencil",
+  "name": "@insabelter/component-bib-prototype-stencil",
   "version": "0.0.1",
+  "author": "Insa Belter",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -12,14 +13,14 @@
   "unpkg": "dist/component-bib-prototype-stencil/component-bib-prototype-stencil.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://github.com/insabelter/component-bib-prototype-stencil"
   },
   "files": [
     "dist/",
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
+    "build": "npm version patch && stencil build --docs && npm publish --access public",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
