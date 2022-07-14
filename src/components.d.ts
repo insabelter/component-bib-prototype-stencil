@@ -20,6 +20,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface TagInput {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +30,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLTagInputElement extends Components.TagInput, HTMLStencilElement {
+    }
+    var HTMLTagInputElement: {
+        prototype: HTMLTagInputElement;
+        new (): HTMLTagInputElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "tag-input": HTMLTagInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +56,11 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface TagInput {
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "tag-input": TagInput;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +68,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "tag-input": LocalJSX.TagInput & JSXBase.HTMLAttributes<HTMLTagInputElement>;
         }
     }
 }
