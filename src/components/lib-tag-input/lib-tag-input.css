@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+:where(#tag-input) {
+  margin-block-end: var(--spacing-m);
+}
+
+:where(.tag-input-tag) {
+  margin-inline-end: var(--spacing-s);
+  margin-block: var(--spacing-xs);
+}
+
+:where(.tag-container) {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}

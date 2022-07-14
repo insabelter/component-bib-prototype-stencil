@@ -1,0 +1,641 @@
+@import '~@fontsource/raleway/variable.css';
+
+@font-face {
+	font-family: Raleway-fallback;
+	size-adjust: 104.07%; /* stylelint-disable-line property-no-unknown */
+	ascent-override: 88%;
+	descent-override: 20%;
+	line-gap-override: 5%;
+	src: local('Arial');
+}
+
+:root {
+	/*
+	 * Color palette
+	 */
+	--color-base: hsl(0 0% 100%);
+
+	/* Primary colors */
+	--color-primary-25: hsl(204 100% 96%);
+	--color-primary-50: hsl(205 100% 92%);
+	--color-primary-100: hsl(206 100% 88%);
+	--color-primary-200: hsl(205 100% 84%);
+	--color-primary-300: hsl(205 100% 80%);
+	--color-primary-400: hsl(205 100% 76%);
+	--color-primary-500: hsl(205 100% 68%);
+	--color-primary-600: hsl(205 100% 51%);
+	--color-primary-700: hsl(205 100% 44%);
+	--color-primary-800: hsl(201 100% 28%);
+	--color-primary-900: hsl(205 100% 8%);
+	--color-primary: var(--color-primary-600);
+
+	/* Accent colors */
+	--color-accent-1-25: hsl(178 100% 95%);
+	--color-accent-1-50: hsl(177 100% 85%);
+	--color-accent-1-100: hsl(177 100% 75%);
+	--color-accent-1-200: hsl(177 100% 53%);
+	--color-accent-1-300: hsl(177 100% 47%);
+	--color-accent-1-400: hsl(177 100% 42%);
+	--color-accent-1-500: hsl(177 100% 35%);
+	--color-accent-1-600: hsl(177 100% 32%);
+	--color-accent-1-700: hsl(177 100% 25%);
+	--color-accent-1-800: hsl(177 100% 15%);
+	--color-accent-1-900: hsl(175 100% 5%);
+	--color-accent-1: var(--color-accent-1-600);
+	--color-accent-2-25: hsl(261 100% 95%);
+	--color-accent-2-50: hsl(261 100% 87%);
+	--color-accent-2-100: hsl(260 100% 79%);
+	--color-accent-2-200: hsl(260 100% 73%);
+	--color-accent-2-300: hsl(260 100% 63%);
+	--color-accent-2-400: hsl(260 100% 54%);
+	--color-accent-2-500: hsl(260 100% 46%);
+	--color-accent-2-600: hsl(260 100% 37%);
+	--color-accent-2-700: hsl(260 100% 29%);
+	--color-accent-2-800: hsl(260 100% 21%);
+	--color-accent-2-900: hsl(260 100% 13%);
+	--color-accent-2: var(--color-accent-2-200);
+	--color-accent-3-25: hsl(352 100% 95%);
+	--color-accent-3-50: hsl(351 100% 86%);
+	--color-accent-3-100: hsl(352 100% 79%);
+	--color-accent-3-200: hsl(352 100% 68%);
+	--color-accent-3-300: hsl(352 100% 66%);
+	--color-accent-3-400: hsl(352 100% 59%);
+	--color-accent-3-500: hsl(352 100% 50%);
+	--color-accent-3-600: hsl(352 100% 41%);
+	--color-accent-3-700: hsl(352 100% 32%);
+	--color-accent-3-800: hsl(352 100% 23%);
+	--color-accent-3-900: hsl(352 100% 14%);
+	--color-accent-3: var(--color-accent-3-300);
+	--color-accent-4-25: hsl(47 100% 95%);
+	--color-accent-4-50: hsl(46 100% 86%);
+	--color-accent-4-100: hsl(46 100% 77%);
+	--color-accent-4-200: hsl(46 100% 68%);
+	--color-accent-4-300: hsl(46 100% 59%);
+	--color-accent-4-400: hsl(46 100% 50%);
+	--color-accent-4-500: hsl(43 59% 52%);
+	--color-accent-4-600: hsl(46 100% 36%);
+	--color-accent-4-700: hsl(46 100% 23%);
+	--color-accent-4-800: hsl(45 100% 14%);
+	--color-accent-4-900: hsl(47 100% 5%);
+	--color-accent-4: var(--color-accent-4-600);
+
+	/* States colors */
+	--color-error-25: hsl(12 100% 99%);
+	--color-error-50: hsl(5 86% 97%);
+	--color-error-100: hsl(4 93% 94%);
+	--color-error-200: hsl(3 96% 89%);
+	--color-error-300: hsl(4 96% 80%);
+	--color-error-400: hsl(4 92% 69%);
+	--color-error-500: hsl(4 86% 58%);
+	--color-error-600: hsl(4 74% 49%);
+	--color-error-700: hsl(4 76% 40%);
+	--color-error-800: hsl(4 72% 33%);
+	--color-error-900: hsl(8 65% 29%);
+	--color-error: var(--color-error-600);
+	--color-warning-25: hsl(42 100% 92%);
+	--color-warning-50: hsl(45 100% 96%);
+	--color-warning-100: hsl(45 96% 89%);
+	--color-warning-200: hsl(44 98% 77%);
+	--color-warning-300: hsl(42 99% 65%);
+	--color-warning-400: hsl(39 98% 56%);
+	--color-warning-500: hsl(34 94% 50%);
+	--color-warning-600: hsl(28 97% 44%);
+	--color-warning-700: hsl(22 92% 37%);
+	--color-warning-800: hsl(19 94% 31%);
+	--color-warning-900: hsl(18 79% 27%);
+	--color-warning: var(--color-warning-600);
+	--color-success-25: hsl(143 80% 98%);
+	--color-success-50: hsl(145 81% 96%);
+	--color-success-100: hsl(140 80% 90%);
+	--color-success-200: hsl(144 78% 80%);
+	--color-success-300: hsl(148 74% 67%);
+	--color-success-400: hsl(150 66% 52%);
+	--color-success-500: hsl(152 82% 39%);
+	--color-success-600: hsl(153 96% 30%);
+	--color-success-700: hsl(155 97% 24%);
+	--color-success-800: hsl(155 90% 20%);
+	--color-success-900: hsl(156 88% 16%);
+	--color-success: var(--color-success-600);
+
+	/* Neutral colors */
+	--color-grey-25: hsl(240 20% 99%);
+	--color-grey-50: hsl(210 20% 98%);
+	--color-grey-100: hsl(216 24% 96%);
+	--color-grey-200: hsl(218 17% 91%);
+	--color-grey-300: hsl(217 16% 84%);
+	--color-grey-400: hsl(218 15% 65%);
+	--color-grey-500: hsl(221 13% 46%);
+	--color-grey-600: hsl(216 18% 34%);
+	--color-grey-700: hsl(218 24% 27%);
+	--color-grey-800: hsl(214 33% 17%);
+	--color-grey-900: hsl(0 0% 16%);
+	--color-grey: var(--color-grey-500);
+
+	/*
+	 * Semantic colors
+	 * Dark theme (default)
+	 */
+	color-scheme: light; /* TODO: switch color-scheme to dark, when palette is ready */
+
+	/* Background colors */
+	--color-bg: var(--color-base);
+	--color-bg-subtle: var(--color-grey-50);
+	--color-bg-moderate: var(--color-grey-100);
+	--color-bg-emphasis: var(--color-grey-900);
+
+	/* Text colors */
+	--color-text: var(--color-grey-900);
+	--color-text-secondary: var(--color-grey-700);
+	--color-text-tertiary: var(--color-grey-500);
+	--color-text-onemphasis: var(--color-base);
+
+	/* Icons colors */
+	--color-icon: var(--color-primary-600);
+
+	/* Border colors */
+	--color-border: var(--color-grey-200);
+	--color-border-subtle: var(--color-grey-100);
+	--color-border-moderate: var(--color-grey-300);
+
+	/* Outline colors */
+	--color-outline: var(--color-primary-200);
+
+	/* Accent background colors */
+	--color-accent-bg: var(--color-primary-600);
+	--color-accent-bg--hover: var(--color-primary-700);
+	--color-accent-bg--active: var(--color-primary-800);
+	--color-accent-bg--disabled: var(--color-primary-25);
+	--color-accent-bg-secondary: var(--color-primary-50);
+	--color-accent-bg-secondary--hover: var(--color-primary-100);
+	--color-accent-bg-secondary--active: var(--color-primary-200);
+	--color-accent-bg-secondary--disabled: var(--color-primary-25);
+	--color-accent-bg-tertiary: var(--color-base);
+	--color-accent-bg-tertiary--hover: var(--color-grey-100);
+	--color-accent-bg-tertiary--active: var(--color-grey-200);
+	--color-accent-bg-tertiary--disabled: var(--color-grey-50);
+
+	/* Accent text colors */
+	--color-accent-text: var(--color-primary-700);
+	--color-accent-text--hover: var(--color-primary-800);
+	--color-accent-text--active: var(--color-primary-900);
+	--color-accent-text--disabled: var(--color-primary-200);
+	--color-accent-text-onaccentbg: var(--color-base);
+	--color-accent-text-secondary: var(--color-grey-700);
+	--color-accent-text-secondary--hover: var(--color-grey-800);
+	--color-accent-text-secondary--disabled: var(--color-grey-300);
+	--color-accent-text-secondary-v2--disabled: var(--color-grey-400);
+	--color-accent-text-tertiary: var(--color-grey-500);
+	--color-accent-text-tertiary--hover: var(--color-grey-600);
+	--color-accent-text-tertiary--disabled: var(--color-grey-300);
+	--color-accent-text-tertiary-v2--disabled: var(--color-grey-400);
+
+	/* Accent icon colors */
+	--color-accent-icon: currentcolor;
+	--color-accent-icon--hover: currentcolor;
+	--color-accent-icon--disabled: currentcolor;
+	--color-accent-icon-onaccentbg: currentcolor;
+	--color-accent-icon-secondary: currentcolor;
+	--color-accent-icon-secondary--hover: currentcolor;
+	--color-accent-icon-secondary--disabled: currentcolor;
+
+	/* Accent border colors */
+	--color-accent-border: var(--color-primary-300);
+	--color-accent-border--hover: var(--color-primary-400);
+	--color-accent-border--active: var(--color-primary-500);
+	--color-accent-border--focus: var(--color-primary-300);
+	--color-accent-border--disabled: var(--color-primary-200);
+	--color-accent-border-secondary: var(--color-grey-300);
+	--color-accent-border-secondary--hover: var(--color-grey-400);
+	--color-accent-border-secondary--active: var(--color-grey-500);
+	--color-accent-border-secondary--focus: var(--color-primary-300);
+	--color-accent-border-secondary--disabled: var(--color-grey-200);
+
+	/* Info colors */
+	--color-info-bg: var(--color-primary-600);
+	--color-info-bg-secondary: var(--color-primary-100);
+	--color-info-bg-tertiary: var(--color-primary-50);
+	--color-info-text: var(--color-primary-600);
+
+	/* Warning colors */
+	--color-warning-bg: var(--color-warning-600);
+	--color-warning-bg-secondary: var(--color-warning-100);
+	--color-warning-bg-tertiary: var(--color-warning-50);
+	--color-warning-text: var(--color-warning-600);
+
+	/* Error colors */
+	--color-error-bg: var(--color-error-600);
+	--color-error-bg-secondary: var(--color-error-100);
+	--color-error-bg-tertiary: var(--color-error-50);
+	--color-error-text: var(--color-error-600);
+
+	/* Success colors */
+	--color-success-bg: var(--color-success-600);
+	--color-success-bg-secondary: var(--color-success-100);
+	--color-success-bg-tertiary: var(--color-success-50);
+	--color-success-text: var(--color-success-600);
+
+	/* Blur colors */
+	--color-blur: hsl(0 0% 100% / 0.6);
+	--color-blur-inverted: hsl(217 23% 27% / 0.6);
+
+	/* Shadow colors */
+	--hsl-shadow: 220 43% 11%;
+
+	--font-family: 'RalewayVariable', 'Raleway-fallback', sans-serif;
+	 --font-family-monospace: monospace;
+ 
+	 /**
+	  * Font sizes
+	  */
+	 --line-height: 1.5;
+ 
+	 /* Text */
+	 --font-size-xs: 0.75rem;
+	 --font-size-s: 0.875rem;
+	 --font-size-m: 1rem; /* default */
+	 --font-size-l: 1.125rem;
+	 --font-size-xl: 1.25rem;
+ 
+	 /* Headings */
+	 --font-size-header-xs: 1.5rem;
+	 --font-size-header-s: 1.875rem;
+	 --font-size-header-m: 2.25rem;
+	 --font-size-header-l: 3rem;
+	 --font-size-header-xl: 3.75rem;
+	 --font-size-header-xxl: 4.5rem;
+ 
+	 /**
+	  * Font weights
+	  */
+	 --font-weight-normal: 400; /* default */
+	 --font-weight-medium: 500;
+	 --font-weight-semi-bold: 600;
+	 --font-weight-bold: 700;
+
+	 /* Preferences */
+	--max-line-length: 80ch; /* Improve readability by limitting the amount of characters per line */
+
+	/* Spacing */
+	--spacing-xs: 0.25rem;
+	--spacing-s: 0.5rem;
+	--spacing-m: 1rem;
+	--spacing-l: 1.5rem;
+	--spacing-xl: 2rem;
+	--spacing-xxl: 2.5rem;
+	--spacing-xxxl: 5rem;
+
+	/* Borders */
+	--border-width: 0.0625rem; /* 1px */
+	--border-radius-xs: 0.125rem;
+	--border-radius-s: 0.25rem;
+	--border-radius-m: 0.375rem;
+	--border-radius-l: 0.375rem;
+	--border-radius-xl: 0.5rem;
+	--border-radius-xxl: 0.75rem;
+
+	/* Shadows */
+	--shadow-xs: 0 0.0625rem 0.125rem 0 hsl(var(--hsl-shadow) / 0.05);
+	--shadow-s: 0 0.0625rem 0.1875rem 0 hsl(var(--hsl-shadow) / 0.08), 0 0625rem 0.125rem 0 hsl(var(--hsl-shadow) / 0.04);
+	--shadow-m: 0 0.25rem 0.5rem -0.125rem hsl(var(--hsl-shadow) / 0.08),
+		0 0.125rem 0.25rem -0.125rem hsl(var(--hsl-shadow) / 0.04);
+	--shadow-l: 0 0.75rem 1rem -0.25rem hsl(var(--hsl-shadow) / 0.06),
+		0 0.25rem 0.375rem -0.125rem hsl(var(--hsl-shadow) / 0.02);
+	--shadow-xl: 0 1.25rem 1.5rem -0.25rem hsl(var(--hsl-shadow) / 0.06),
+		0 0.5rem 0.5rem -0.25rem hsl(var(--hsl-shadow) / 0.02);
+	--shadow-xxl: 0 1.5rem 3rem -0.75rem hsl(var(--hsl-shadow) / 0.012);
+	--shadow-xxxl: 0 2rem 4rem -0.75rem hsl(var(--hsl-shadow) / 0.012);
+
+	/* Blurs: to use in backdrop-filter */
+	--blur-s: blur(0.5rem);
+	--blur-m: blur(1rem);
+	--blur-l: blur(1.5rem);
+	--blur-xl: blur(2.5rem);
+
+	/* Outline */
+	--outline: 0 0 0 0.25rem var(--color-outline);
+	--outline-with-padding: 0 0 0 0.25rem var(--color-bg), 0 0 0 var(--spacing-s) var(--color-outline);
+
+	/* Transitions */
+	--transition-outline-shadow: box-shadow 0.2s ease-out;
+	--transition-state-changed: transform 0.1s cubic-bezier(0.4, 0, 0.4, 1),
+		background-color 0.1s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+/*
+ * Browser specified light theme
+ */
+@media screen and (prefers-color-scheme: light) {
+	:where(html) {
+		color-scheme: light;
+		--color-bg: hsl(0 0% 100%);
+		--color-text: hsl(0 0% 6%);
+	}
+}
+
+/*
+ * Always use light theme in print
+ */
+@media print {
+	:where(html) {
+		color-scheme: light;
+		--color-bg: hsl(0 0% 100%);
+		--color-text: hsl(0 0% 6%);
+
+		/* TODO: overwrite with CMYK values when supported (CSS4) */
+	}
+}
+
+/*
+ * Manually specified dark theme
+ */
+[data-theme='dark'] {
+	/* TODO: check if there is a way to automatically generate this based on the color scheme */
+	color-scheme: dark;
+	--color-bg: hsl(0 0% 6%);
+	--color-text: hsl(0 0% 100%);
+}
+
+/*
+ * Manually specified light theme
+ */
+[data-theme='light'] {
+	color-scheme: light;
+	--color-bg: hsl(0 0% 100%);
+	--color-text: hsl(0 0% 6%);
+}
+
+/**
+ * base.css
+ *
+ */
+
+ :where(html) {
+	/* Colors */
+	accent-color: var(--color-accent-bg);
+	background-color: var(--color-bg);
+	color: var(--color-text);
+
+	/* Text */
+	font-family: var(--font-family);
+
+	/* Additional smoothing fixes for MacOS */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+}
+
+:where(body) {
+	/* Handle the notch on mobile devices */
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+	font-size: var(--font-size-m);
+	line-height: var(--line-height);
+
+	/* Prevent layout shift when scrollbar is visible */
+	scrollbar-gutter: stable both-edges;
+}
+
+:where(code,
+kbd, /* Keyborad input */
+pre, /* Preformatted text */
+var) {
+	font-family: var(--font-family-monospace);
+}
+
+/*
+ * Global animations
+ */
+
+*,
+::before,
+::after {
+	/* smoothly change colors when switching between themes */
+	transition: color 0.3s ease, background-color 0.3s ease;
+
+	@media (prefers-reduced-motion: no-preference) {
+		/* Transition to box-shadows like the oultine */
+		transition: var(--transition-outline-shadow);
+	}
+}
+
+/**
+ * base/animation.css
+ *
+ */
+
+ @keyframes radio-state-change {
+	from {
+		background-size: 250% 250%;
+	}
+	to {
+		background-size: 100% 100%;
+	}
+}
+
+@keyframes check-state-change {
+	from {
+		background-position: 100% 0%;
+	}
+	to {
+		background-position: 0% 0%;
+	}
+}
+
+@keyframes slide-in-from-top {
+	from {
+		transform: translateY(-100vh);
+	}
+}
+
+@keyframes slide-out-to-top {
+	to {
+		display: none;
+		transform: translateY(-100vh);
+	}
+}
+
+/**
+ * elements/input.css
+ *
+ */
+
+/*************************************************************************************************
+ * Basic Label style
+ *************************************************************************************************/
+ :where(label) {
+	display: flex;
+	flex-direction: column;
+	margin: var(--spacing-m);
+	color: var(--color-text);
+	font-size: var(--font-size-m);
+}
+
+/*************************************************************************************************
+ * Basic Input Style
+ *************************************************************************************************/
+:where(input) {
+	padding: var(--spacing-s);
+	border: var(--border-width) solid var(--color-accent-border-secondary);
+	border-radius: var(--border-radius-xl);
+	outline: none;
+	background-color: var(--color-bg);
+	box-shadow: var(--shadow-xs);
+	color: var(--color-text-secondary);
+	font-family: inherit;
+	font-size: var(--font-size-m);
+
+	&::placeholder {
+		color: var(--color-text-tertiary);
+	}
+
+	/**
+  * States
+  */
+	&:where(:focus),
+	&:where(:focus-within) {
+		border-color: var(--color-accent-border-secondary--focus);
+		box-shadow: var(--outline), var(--shadow-xs);
+	}
+	&:not(:disabled):hover {
+		border-color: var(--color-accent-border-secondary--hover);
+	}
+	&:where(:disabled) {
+		border-color: var(--color-accent-border-secondary--disabled);
+		background-color: var(--color-accent-bg-tertiary--disabled);
+		color: var(--color-accent-text-secondary-v2--disabled);
+	}
+}
+
+/*************************************************************************************************
+ * Search Input field
+ *************************************************************************************************/
+:where(label.search) {
+	--input-icon-size: calc(var(--font-size-m) * 1.3);
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto auto;
+
+	&::before {
+		content: '';
+		display: block;
+		grid-column: 1;
+		grid-row: 2;
+		align-self: center;
+		block-size: var(--input-icon-size);
+		inline-size: var(--input-icon-size);
+		margin-inline: 1ch;
+		background-color: currentcolor;
+		/* stylelint-disable-next-line function-no-unknown */
+		mask-image: inline('@atos-parallel/icons/svg/magnifying-glass.svg');
+		mask-repeat: no-repeat no-repeat;
+		mask-position: center center;
+		mask-size: cover;
+	}
+}
+
+:where(label.search > input[type='search']) {
+	grid-column: 1;
+	grid-row: 2;
+	padding-inline-start: calc(var(--input-icon-size) + 1.5ch);
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		-webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
+	}
+}
+
+:where(label.search > span) {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+/*************************************************************************************************
+ * Checkboxes & Radio Buttons
+ *************************************************************************************************/
+
+/* TODO: Replace class on label through :has whenever browser support is available - https://caniuse.com/css-has */
+
+:where(label.checkbox, label.radio, label.checkmark, label.toggle) {
+	--element-size: 1.25rem;
+	--border-color: var(--color-accent-border-secondary);
+
+	&:where(.toggle) {
+		/* toggle specific variables */
+		--element-lane-size: 3rem;
+		--border-width: 0.125rem;
+		--border-color: transparent;
+	}
+	display: grid;
+	grid-template-columns: var(--element-lane-size, var(--element-size)) auto;
+	grid-template-rows: auto auto;
+	gap: 0 1ch;
+
+	/**
+	 * Native element
+	 */
+	& > :where(input[type='checkbox'], input[type='radio']) {
+		/* visually hide the native element */
+		position: absolute;
+		grid-column: 1;
+		grid-row: 1;
+		block-size: 1px;
+		inline-size: 1px;
+		overflow: hidden;
+		clip: rect(1px, 1px, 1px, 1px);
+		white-space: nowrap;
+	}
+
+	/**
+	 * Label
+	 */
+	& > :where(span) {
+		cursor: pointer;
+
+		&:first-of-type {
+			display: grid;
+			grid-column: 1 / span 2;
+			grid-row: 1;
+			grid-template-columns: var(--element-lane-size, var(--element-size)) auto;
+			grid-template-columns: subgrid;
+			grid-template-rows: auto;
+			align-items: center;
+			justify-content: start;
+			font-weight: var(--font-weight-medium);
+			gap: 1ch;
+		}
+		&:not(:first-of-type):last-of-type {
+			grid-column: 2;
+			grid-row: 2;
+		}
+	}
+
+	/**
+	 * The custom designed input
+	 */
+	& > :where(span:first-of-type) {
+		&::before,
+		&::after {
+			display: inline-block;
+			grid-column: 1;
+			grid-row: 1;
+			block-size: var(--element-size);
+			inline-size: var(--element-size);
+
+			/* Overwrite default outline transition to include state change */
+			@media (prefers-reduced-motion: no-preference) {
+				transition: var(--transition-outline-shadow), var(--transition-state-changed);
+			}
+		}
+		&::before {
+			content: '';
+			border: var(--border-width) solid var(--border-color);
+			background: var(--color-bg);
+			box-shadow: var(--shadow-xs);
+		}
+	}
+}
+ 

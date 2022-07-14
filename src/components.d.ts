@@ -6,69 +6,45 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface LibTag {
     }
-    interface TagInput {
+    interface LibTagInput {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLLibTagElement extends Components.LibTag, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLLibTagElement: {
+        prototype: HTMLLibTagElement;
+        new (): HTMLLibTagElement;
     };
-    interface HTMLTagInputElement extends Components.TagInput, HTMLStencilElement {
+    interface HTMLLibTagInputElement extends Components.LibTagInput, HTMLStencilElement {
     }
-    var HTMLTagInputElement: {
-        prototype: HTMLTagInputElement;
-        new (): HTMLTagInputElement;
+    var HTMLLibTagInputElement: {
+        prototype: HTMLLibTagInputElement;
+        new (): HTMLLibTagInputElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
-        "tag-input": HTMLTagInputElement;
+        "lib-tag": HTMLLibTagElement;
+        "lib-tag-input": HTMLLibTagInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface LibTag {
     }
-    interface TagInput {
+    interface LibTagInput {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
-        "tag-input": TagInput;
+        "lib-tag": LibTag;
+        "lib-tag-input": LibTagInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "tag-input": LocalJSX.TagInput & JSXBase.HTMLAttributes<HTMLTagInputElement>;
+            "lib-tag": LocalJSX.LibTag & JSXBase.HTMLAttributes<HTMLLibTagElement>;
+            "lib-tag-input": LocalJSX.LibTagInput & JSXBase.HTMLAttributes<HTMLLibTagInputElement>;
         }
     }
 }
