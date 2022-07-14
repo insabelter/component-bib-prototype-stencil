@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "build": " stencil build",
-    "publish": "npm version patch && npm publish --access public",
+    "publish_lib": "npm version patch && npm publish --access public",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
