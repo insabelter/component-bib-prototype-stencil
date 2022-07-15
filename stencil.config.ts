@@ -27,21 +27,22 @@ export const config: Config = {
       esmLoaderPath: '../loader',
       copy:[
         {
-          src: '**/*.woff2',
+          src: '../node_modules/@fontsource/raleway/files/*-wghtOnly-normal.woff2',
           dest: 'files',
           warn: true,
         }
       ]
     },
     {
-      type: 'dist-custom-elements'
-    },
-    {
-      type: 'docs-readme',
-    },
-    {
       type: 'www',
       serviceWorker: null, // disable service workers
+      copy:[
+        {
+          src: '../node_modules/@fontsource/raleway/files/*-wghtOnly-normal.woff2',
+          dest: 'build/files',
+          warn: true,
+        }
+      ]
     },
   ],
 };
