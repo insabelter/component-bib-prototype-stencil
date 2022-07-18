@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="/build/component-bib-prototype-stencil.css" />
   </head>
   <body>
-    <lib-tag-input></lib-tag-input>
+    <lib-card card_title="Tag Input">
+      <lib-tag-input placeholder="Enter a tag"></lib-tag-input>
+    </lib-card>
+    <p>These are all the tags:</p>
+    <ul id="all_tags"></ul>
+    
+    <!-- Script -->
+    <script>
+      var tags = ['Apple', 'Banana'];
+      const tagInputElement = document.querySelector('lib-tag-input');
+      
+      function updateDOMTags(tags){
+        var allTagsElement = document.getElementById("all_tags");
+        allTagsElement.replaceChildren([]);
+        tags.map((tag) => {
+          var tagElement = document.createElement('li');
+          tagElement.innerHTML = tag;
+          allTagsElement.appendChild(tagElement);
+        });
+      }
+      tagInputElement.tags = tags;
+      updateDOMTags(tags);
+      console.log(tagInputElement);
+
+      tagInputElement.addEventListener('tagsChanged', event => {
+        tags = event.detail;
+        updateDOMTags(tags);
+      })
+      
+    </script>
   </body>
 </html>

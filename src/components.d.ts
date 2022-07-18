@@ -6,12 +6,33 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface LibCard {
+        "card_title": string;
+    }
     interface LibTag {
+        "tag": string;
+        "tags": string[];
     }
     interface LibTagInput {
+        "placeholder": string;
+        "tags": string[];
     }
 }
+export interface LibTagCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLibTagElement;
+}
+export interface LibTagInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLibTagInputElement;
+}
 declare global {
+    interface HTMLLibCardElement extends Components.LibCard, HTMLStencilElement {
+    }
+    var HTMLLibCardElement: {
+        prototype: HTMLLibCardElement;
+        new (): HTMLLibCardElement;
+    };
     interface HTMLLibTagElement extends Components.LibTag, HTMLStencilElement {
     }
     var HTMLLibTagElement: {
@@ -25,16 +46,27 @@ declare global {
         new (): HTMLLibTagInputElement;
     };
     interface HTMLElementTagNameMap {
+        "lib-card": HTMLLibCardElement;
         "lib-tag": HTMLLibTagElement;
         "lib-tag-input": HTMLLibTagInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface LibCard {
+        "card_title"?: string;
+    }
     interface LibTag {
+        "onTagDeleted"?: (event: LibTagCustomEvent<string[]>) => void;
+        "tag"?: string;
+        "tags"?: string[];
     }
     interface LibTagInput {
+        "onTagsChanged"?: (event: LibTagInputCustomEvent<string[]>) => void;
+        "placeholder"?: string;
+        "tags"?: string[];
     }
     interface IntrinsicElements {
+        "lib-card": LibCard;
         "lib-tag": LibTag;
         "lib-tag-input": LibTagInput;
     }
@@ -43,6 +75,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "lib-card": LocalJSX.LibCard & JSXBase.HTMLAttributes<HTMLLibCardElement>;
             "lib-tag": LocalJSX.LibTag & JSXBase.HTMLAttributes<HTMLLibTagElement>;
             "lib-tag-input": LocalJSX.LibTagInput & JSXBase.HTMLAttributes<HTMLLibTagInputElement>;
         }
