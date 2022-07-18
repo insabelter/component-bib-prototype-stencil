@@ -32,6 +32,7 @@
     "@fontsource/raleway": "^4.5.9"
   },
   "devDependencies": {
+    "@stencil/angular-output-target": "^0.4.0",
     "@stencil/core": "^2.13.0",
     "@types/jest": "^27.0.3",
     "jest": "^27.4.5",

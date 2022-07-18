@@ -1,26 +1,9 @@
 import { Config } from '@stencil/core';
-import { postcss } from '@stencil/postcss';
+import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
   namespace: 'component-bib-prototype-stencil',
   globalStyle: 'src/global/styles.css',
-  plugins: [
-    //  postcss({
-    //    plugins: [
-    //      require('postcss-import'),
-    //      require('postcss-url')([{
-    //          url: 'rebase',
-    //          assetsPath: '.'
-    //      },
-    //      {
-    //        url: 'copy',
-    //        basePath:'',
-    //        assetsPath: '../../../dist/component-bib-prototype-stencil/',
-    //        useHash: false
-    //      }])
-    //    ]
-    //  })
-  ],
   outputTargets: [
     {
       type: 'dist',
@@ -44,5 +27,10 @@ export const config: Config = {
         }
       ]
     },
+    angularOutputTarget({
+      componentCorePackage: 'component-bib-prototype-stencil',
+      directivesProxyFile: 'dist/angular-wrappers/components.ts',
+      directivesArrayFile: 'dist/angular-wrappers/index.ts',
+    })
   ],
 };
