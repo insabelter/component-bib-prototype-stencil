@@ -1,5 +1,7 @@
 import { Config } from '@stencil/core';
-import { angularOutputTarget } from '@stencil/angular-output-target';
+import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target';
+
+const angularValueAccessorBindings: ValueAccessorConfig[] = [];
 
 export const config: Config = {
   namespace: 'component-bib-prototype-stencil',
@@ -17,6 +19,9 @@ export const config: Config = {
       ]
     },
     {
+      type: 'dist-custom-elements',
+    },
+    {
       type: 'www',
       serviceWorker: null, // disable service workers
       copy:[
@@ -28,9 +33,10 @@ export const config: Config = {
       ]
     },
     angularOutputTarget({
-      componentCorePackage: 'component-bib-prototype-stencil',
-      directivesProxyFile: 'dist/angular-wrappers/components.ts',
-      directivesArrayFile: 'dist/angular-wrappers/index.ts',
+      componentCorePackage: '@insabelter/component-library-stencil/dist/components',
+      directivesProxyFile: '../website-prototype-stencil-angular/projects/component-library/src/lib/stencil-generated/proxies.ts',
+      directivesArrayFile: '../website-prototype-stencil-angular/projects/component-library/src/lib/stencil-generated/index.ts',
+      valueAccessorConfigs: angularValueAccessorBindings
     })
   ],
 };
