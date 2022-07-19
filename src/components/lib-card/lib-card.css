@@ -1,5 +1,6 @@
 :host {
   display: block;
+  --card-bg-color: var(--color-bg);
 }
 
 :where(.card) {
@@ -8,6 +9,6 @@
   margin: 1.5rem;
   padding: 2rem var(--inline-padding);
   border-radius: var(--border-radius-xl);
-  background-color: var(--color-bg);
+  background-color: var(--card-bg-color);
   box-shadow: var(--shadow-l);
 }
