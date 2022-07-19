@@ -1,6 +1,6 @@
 {
   "name": "@insabelter/component-library-stencil",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Insa Belter",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
