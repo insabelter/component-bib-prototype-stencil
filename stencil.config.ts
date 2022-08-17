@@ -19,6 +19,9 @@ export const config: Config = {
       ]
     },
     {
+      type: 'dist-custom-elements',
+    },
+    {
       type: 'www',
       serviceWorker: null, // disable service workers
       copy:[
