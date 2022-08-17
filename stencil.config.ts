@@ -19,9 +19,6 @@ export const config: Config = {
       ]
     },
     {
-      type: 'dist-custom-elements',
-    },
-    {
       type: 'www',
       serviceWorker: null, // disable service workers
       copy:[
@@ -34,8 +31,10 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: '@insabelter/component-library-stencil/dist/components',
-      directivesProxyFile: '../website-prototype-stencil-angular/projects/component-library/src/lib/stencil-generated/proxies.ts',
-      directivesArrayFile: '../website-prototype-stencil-angular/projects/component-library/src/lib/stencil-generated/index.ts',
+      directivesProxyFile: 'dist/angular-targeted/proxies.ts',
+      directivesArrayFile: 'dist/angular-targeted/index.ts',
+      // directivesProxyFile: '../website-prototype-stencil-angular/projects/component-library/src/lib/stencil-generated/proxies.ts',
+      // directivesArrayFile: '../website-prototype-stencil-angular/projects/component-library/src/lib/stencil-generated/index.ts',
       valueAccessorConfigs: angularValueAccessorBindings
     })
   ],

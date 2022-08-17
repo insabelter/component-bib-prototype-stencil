@@ -31,11 +31,22 @@ export class LibTagInput {
   render() {
     return (
       <Host>
-        <input title={this.placeholder} placeholder={this.placeholder} onKeyUp={(event) => {this.onInput(event)}} type="text" id="tag-input" name="tagInput" />
+        <input 
+          title={this.placeholder} 
+          placeholder={this.placeholder} 
+          onKeyUp={(event) => {this.onInput(event)}} 
+          type="text" 
+          id="tag-input" 
+          name="tagInput" 
+        />
         <div class="tag-container">
           {
             this.tags.map((tag) => 
-              <lib-tag class="tag-input-tag" tag={tag} tags={this.tags}></lib-tag>
+              <lib-tag 
+                class="tag-input-tag" 
+                tag={tag} 
+                tags={this.tags}>
+              </lib-tag>
             )
           }
         </div>
